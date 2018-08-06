@@ -16,7 +16,7 @@ public class Triangle {
 			if ((a == b) && (b == c)) {
 				System.out.println("is 3 sides of the equilateral triangle.");
 			} else if ((a == b) || (b == c) || (a == c)) {
-				System.out.println("is 3 sides of the isosceles triangle");
+				System.out.println("is 3 sides of the isosceles triangle.");
 			} else if ((a * a == b * b + c * c) || (b * b == a * a + c * c) || (c * c == b * b + a * a)) {
 				System.out.println("is 3 sides of the right triangle");
 			} else {
