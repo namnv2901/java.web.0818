@@ -6,7 +6,7 @@ public class TestFlashLamp {
 		Battery battery = new Battery();
 		FlashLamp flashLamp = new FlashLamp();
 		flashLamp.setBattery(battery);
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 10; i++) {
 			System.out.println((i + 1) + " Times");
 			System.out.println("-----");
 			flashLamp.turnOn();
