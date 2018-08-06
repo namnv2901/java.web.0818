@@ -14,7 +14,7 @@ public class Triangle {
 	public void checkTriangleType() {
 		if (((a + b > c) && (a + c > b) && (b + c > a)) && ((a > 0) && (b > 0) && (c > 0))) {
 			if ((a == b) && (b == c)) {
-				System.out.println("is 3 sides of the equilateral triangle");
+				System.out.println("is 3 sides of the equilateral triangle.");
 			} else if ((a == b) || (b == c) || (a == c)) {
 				System.out.println("is 3 sides of the isosceles triangle");
 			} else if ((a * a == b * b + c * c) || (b * b == a * a + c * c) || (c * c == b * b + a * a)) {
