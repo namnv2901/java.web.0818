@@ -20,7 +20,7 @@ public class Triangle {
 			} else if ((a * a == b * b + c * c) || (b * b == a * a + c * c) || (c * c == b * b + a * a)) {
 				System.out.println("is 3 sides of the right triangle");
 			} else {
-				System.out.println("is 3 sides of the triangle");
+				System.out.println("is 3 sides of the triangle.");
 			}
 		} else {
 			System.out.println("is not 3 sides of the triangle!");
