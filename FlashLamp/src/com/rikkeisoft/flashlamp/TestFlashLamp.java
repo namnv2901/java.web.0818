@@ -11,7 +11,7 @@ public class TestFlashLamp {
 			System.out.println("-----");
 			flashLamp.turnOn();
 			flashLamp.turnOff();
-			System.out.println("====================");
+			System.out.println("===================");
 		}
 		System.out.println("Enery of the flash lamp is: " + flashLamp.getBatteryInfo());
 	}
