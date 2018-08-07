@@ -1,7 +1,7 @@
 package triangle;
 
 public class Main {
-    static Triangle triangle = new Triangle(5, 3, 4);
+    static Triangle triangle = new Triangle(01, 3, 4);
     static double canhA = triangle.getCanhA();
     static double canhB = triangle.getCanhB();
     static double canhC = triangle.getCanhC();

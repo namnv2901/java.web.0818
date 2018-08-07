@@ -45,7 +45,7 @@ public class Triangle {
         double sumAc = canhA + canhC;
         double sumBc = canhB + canhC;
         if (canhA > 0 && canhB > 0 && canhC > 0) {
-            return (sumAb > canhC) || (sumAc > canhB) || (sumBc > canhB);
+            return (sumAb > canhC) && (sumAc > canhB) && (sumBc > canhA);
         }
         return false;
     }
