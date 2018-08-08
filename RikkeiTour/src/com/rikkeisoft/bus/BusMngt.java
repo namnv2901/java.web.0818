@@ -9,7 +9,7 @@ public class BusMngt {
 		System.out.println("|               Buses Management System            |");
 		System.out.println("====================================================");
 		System.out.println("| 1. Input a urban bus                             |");
-		System.out.println("| 2. Input a suberban bus                          |");
+		System.out.println("| 2. Input a suburban bus                          |");
 		System.out.println("| 3. Display all buses                             |");
 		System.out.println("| 4. Display total revenue of the buses            |");
 		System.out.println("| 5. Exit                                          |");
