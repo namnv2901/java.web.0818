@@ -139,7 +139,7 @@ public class ElectricityBillMngt {
 				break;
 			}
 			case 3: {
-				System.out.println("\t----------All electricity Bills for Vietnamese customers -----------");
+				System.out.println("\t-----------All electricity Bills for Vietnamese customers -----------");
 				calAmount(vnCustomers);
 				System.out.printf("\n%-10s %-20s %-15s %-25s %-30s %-20s %-20s %-20s\n", "Code", "Name", "Date",
 						"Customer Type", "Electricity Consumption", "Unit Price", "Consumption Limit", "Amount");
