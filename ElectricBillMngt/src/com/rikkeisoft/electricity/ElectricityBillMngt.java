@@ -120,10 +120,6 @@ public class ElectricityBillMngt {
 		}
 	}
 
-	public void displayForeignCustomer() {
-
-	}
-
 	public void run() {
 		showMenu();
 		int choice = 0;
