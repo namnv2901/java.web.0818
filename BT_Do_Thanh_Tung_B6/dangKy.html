@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1 style="text-align: center;color:green">Đăng ký</h1>
+	<form action="#" method="GET" name="frmDangKy">
+		<table style="margin-right: auto;margin-left: auto">
+			<tr>
+				<td>
+					<input type="text" name="txtHo" placeholder="Nhập họ" onfocus="MyFunction2(this)" onblur="MyFunction3(this)">
+				</td>
+				<td>
+					<input type="text" name="txtTen" placeholder="Nhập tên"  onfocus="MyFunction2(this)"  onblur="MyFunction3(this)">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="text" name="txtEmail" placeholder="Nhập email"  onfocus="MyFunction2(this)"  onblur="MyFunction3(this)">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="password" name="txtpass" placeholder="Nhập pass"  onfocus="MyFunction2(this)"  onblur="MyFunction3(this)">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="password" name="txtConfirmPass" placeholder="Nhập lại pass"  onfocus="MyFunction2(this)"  onblur="MyFunction3(this)">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<select name="sltNgay">
+						<option value="-1">
+							Ngày
+						</option>
+					</select>
+					<select name="sltThang">
+						<option value="-1">
+							Tháng
+						</option>
+					</select>
+					<select name="sltNam">
+						<option value="-1">
+							Năm
+						</option>
+					</select>
+				</td>
+			</tr>
+
+			<script type="text/javascript">
+				// xu ly chuot ra ngoai input
+				 function MyFunction3(x){
+				 	x.style.background = "white";
+				 	x.style.color = "black";
+				 }
+
+				// xu ly nhap
+				function MyFunction2(x){
+					x.style.background = "yellow";
+					x.style.color = "green";
+				}
+
+				// xu ly loi
+				function MyFunction(){
+					var txtHo = document.forms["frmDangKy"].elements["txtHo"].value;
+					var txtTen = document.forms["frmDangKy"].elements["txtTen"].value;
+					var txtEmail = document.forms["frmDangKy"].elements["txtEmail"].value;
+					var txtpass = document.forms["frmDangKy"].elements["txtpass"].value;
+					var txtConfirmPass = document.forms["frmDangKy"].elements["txtConfirmPass"].value;
+					var filter = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
+
+					if(txtHo == ""){
+						alert("Ban can nhap ho");
+						document.forms["frmDangKy"].elements["txtHo"].focus();
+						return;
+					}
+					if(txtTen == ""){
+						alert("Ban can nhap ten");
+						document.forms["frmDangKy"].elements["txtTen"].focus();
+						return;
+					}
+					if(txtEmail == ""){
+						alert("Ban can nhap email");
+						document.forms["frmDangKy"].elements["txtEmail"].focus();
+						return;
+					}
+					if(!filter.test(txtEmail)){
+						alert("Email khong hop le");
+						document.forms["frmDangKy"].elements["txtEmail"].focus();
+						return;
+					}
+					if(txtpass == ""){
+						alert("Ban can nhap mat khau");
+						document.forms["frmDangKy"].elements["txtpass"].focus();
+						return;
+					}
+					if(txtConfirmPass != txtpass){
+						alert("Mật khẩu không khớp");
+						document.forms["frmDangKy"].elements["txtConfirmPass"].focus();
+						return;
+					}
+
+					if(document.forms["frmDangKy"].elements["sltNgay"].value == -1){
+						alert("Ban can chon ngay");
+						document.forms["frmDangKy"].elements["sltNgay"].focus();
+						return;
+					}
+
+					if(document.forms["frmDangKy"].elements["sltThang"].value == -1){
+						alert("Ban can chon thang");
+						document.forms["frmDangKy"].elements["sltThang"].focus();
+						return;
+					}
+					if(document.forms["frmDangKy"].elements["sltNam"].value == -1){
+						alert("Ban can chon nam");
+						document.forms["frmDangKy"].elements["sltNam"].focus();
+						return;
+					}
+					var isOke = false;
+
+					for(var i =0; i < document.forms["frmDangKy"].elements["gender"].length;i++){
+						if(frmDangKy.gender[i].checked == true){
+							isOke = true;
+							break;
+						}
+					} 
+
+					if(isOke == false){
+						alert("Bạn cần chọn giới tính");
+						document.forms["frmDangKy"].elements["gender"].focus();
+						return false;
+					}
+
+					else alert("Đăng ký thành công");
+				}
+
+
+				// xu ly ngay
+				for(var i = 1;i<=31;i++){
+					var option = document.createElement("option");
+					option.text = i;
+					option.value = i;
+					document.forms["frmDangKy"].elements["sltNgay"].add(option);
+				}
+				// xu ky thang
+				for(var i = 1;i<=12;i++){
+					var option = document.createElement("option");
+					option.text = i;
+					option.value = i;
+					document.forms["frmDangKy"].elements["sltThang"].add(option,i);
+				}
+				// xu ly nam
+				var date = new Date();
+				for(var i = 0;i<10;i++){
+					var option = document.createElement("option");
+					option.text = date.getFullYear() - i;
+					option.value = date.getFullYear() - i;
+					document.forms["frmDangKy"].elements["sltNam"].add(option,i);
+				}
+
+			</script>
+
+			<tr>
+				<td colspan="2">
+					<input type="radio" name="gender">Nam
+					<input type="radio" name="gender">Nữ
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="button" name="gui" onclick="MyFunction()" value="Registration">
+					<input type="reset" name="reset" value="reset">
+				</td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>

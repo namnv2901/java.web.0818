@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<form action="#" method="GET" name="frmLogin">
+		<table style="margin-right: auto;margin-left: auto">
+			<tr>
+				<td colspan="3">
+					<h1>
+						Create an account
+					</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type="text" name="txtEmail" onfocus="MyFunction1(this)" onblur="MyFunction2(this)" placeholder="Email" ></td>
+				<td>
+					<span id="txtEmail" style="color:red">*</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="txtPass" onfocus="MyFunction1(this)" onblur="MyFunction2(this)" placeholder="Pass"></td>
+				<td>
+					<span id="txtPass" style="color:red">*</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Confirm password</td>
+				<td><input type="password" name="txtPassConfirm" onfocus="MyFunction1(this)" onblur="MyFunction2(this)" placeholder="Confirm Pass"></td>
+				<td>
+					<span id="txtPassConfirm" style="color:red">*</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Full Name</td>
+				<td><input type="text" name="txtFN" onfocus="MyFunction1(this)" onblur="MyFunction2(this)" placeholder="Full Name"></td>
+				<td>
+					<span id="txtFN" style="color:red">*</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Address</td>
+				<td>
+					<textarea cols="40" rows="8">
+						
+					</textarea>
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>Country</td>
+				<td>
+					<select name="country">
+						<option value="-1">-Country-</option>
+						<option>Hoa Binh</option>
+						<option>Ha Noi</option>
+					</select>
+				</td>
+				<td>
+					<span id="country" style="color:red">*</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Phone No:</td>
+				<td>
+					<input type="text" name="txtPhone" onfocus="MyFunction1(this)" onblur="MyFunction2(this)" placeholder="Phone">
+				</td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>Sex:</td>
+				<td>
+					<input type="radio" name="gender">Male
+					<input type="radio" name="gender">Female
+				</td>
+				<td>
+					<span id="Sex" style="color:red">*</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Age:</td>
+				<td>
+					<select name="age">
+						<option value="-1">-Select Age-</option>
+						<option>Duoi 18 Thang</option>
+						<option>Tren 18 Thang</option>
+					</select>
+				</td>
+				<td>
+					<span id="Age" style="color: red">*</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>
+					<input type="button" name="" value="Register" onclick="MyFuntion()">
+					<input type="reset" name="reset" value="Clear"> 
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</body>
+<script type="text/javascript">
+	
+	function MyFuntion(){
+		var txtEmail = document.forms["frmLogin"].elements["txtEmail"].value;
+		var txtPass = document.forms["frmLogin"].elements["txtPass"].value;
+		var txtPassConfirm = document["frmLogin"].elements["txtPassConfirm"].value;
+		var txtFN = document["frmLogin"].elements["txtFN"].value;
+		var filter = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
+
+		if(txtEmail == ""){
+			document.getElementById("txtEmail").innerHTML = "Bạn cần nhập Email";
+			document.forms["frmLogin"].elements["txtEmail"].focus();
+			return;
+		}
+		if(!filter.test(txtEmail)){
+			document.getElementById("txtEmail").innerHTML = "Email không hợp lệ";
+			return;
+		}
+		if(txtPass == ""){
+			document.getElementById("txtPass").innerHTML = "Bạn cần nhập password";
+			document.forms["frmLogin"].elements["txtPass"].focus();
+			return;
+		}
+		if(txtPass != txtPassConfirm){
+			document.getElementById("txtPassConfirm").innerHTML = "Mật khẩu không khớp";
+			document.forms["frmLogin"].elements["txtPassConfirm"].focus();
+			return;
+		}
+		if(txtFN == ""){
+			document.getElementById("txtFN").innerHTML = "Bạn cần nhập họ tên";
+			document.forms["frmLogin"].elements["txtFN"].focus();
+			return;
+		}
+
+		if(document.forms["frmLogin"].elements["country"].value == -1){
+			document.getElementById("country").innerHTML = "Bạn cần chọn quê quán";
+			return;
+		}
+
+		var isOke = false;
+
+		for(var i = 0 ; i < document.forms["frmLogin"].elements["gender"].value.length;i++){
+			if(frmLogin.gender[i].checked == true){
+				isOke = true;
+				break;
+			}
+		}
+
+		if(isOke == false){
+			document.getElementById("Sex").innerHTML = "Bạn cần chọn giới tính";
+			return false;
+		}
+
+		if(document.forms["frmLogin"].elements["age"].value == -1){
+			document.getElementById("Age").innerHTML = "Bạn cần chọn ngáy sinh";
+			return;
+		}
+		alert("Bạn đăng ký thành công");
+	}
+
+	function MyFunction1(x){
+		x.style.background = "yellow";
+		x.style.color = "blue";
+	}
+
+	function MyFunction2(x){
+		x.style.background = "white";
+		x.style.color = "black";
+	}
+
+</script>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1>Use FiedSet and legen</h1>
+	<form action="#" method="GET" name="frmDangNhap">
+		<table style="margin-left: auto;margin-right: auto">
+			<fieldset>
+				<p colspan="2">Persion Information</p>
+				<p>
+					Last Name:<input type="text" name="txtLN" onfocus="MyFunction2(this)" onblur="MyFunction3(this)" maxlength="20">
+					<span id="txtLN" style="color:red">*</span>
+				</p>
+				<p>
+					First Name:<input type="text" name="txtFN" onfocus="MyFunction2(this)" onblur="MyFunction3(this)" maxlength="15">
+					<span id="txtFN" style="color:red">*</span>
+				</p>
+				<p>
+					<input type="radio" name="gender">Male
+					<input type="radio" name="gender">Female
+					<span id="gender" style="color:red">*</span>
+				</p>
+				<p>
+					Address:
+				</p>
+				<textarea cols="40" rows="10"></textarea>
+			</fieldset>
+			
+			<fieldset>
+				<legend>
+					Magazines Subeription for
+				</legend>
+				<input type="checkbox" name="Time">Time
+				<input type="checkbox" name="Newsweek">Newsweek
+				<input type="checkbox" name="Sunday">Sunday
+				<input type="checkbox" name="Vogue">Vogue
+				<input type="checkbox" name="People">People
+				<span id="MSF" style="color:red">*</span>
+			</fieldset>			
+				
+			<fieldset>
+				<legend>Duration</legend>
+				<input type="checkbox" name="One_Year">1 Year
+				<input type="checkbox" name="Three_Years">3 Years
+				<input type="checkbox" name="Five_Years">5 Years
+				<span id="Duration" style="color:red">*</span>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Payment Options</legend>
+				<input type="radio" name="PO">Demand Draft
+				<input type="radio" name="PO">Credit Card
+				<span id="PO" style="color:red">*</span>
+			</fieldset>
+			
+			<input type="button" name="Process" value="Process" onclick="MyFunction1()">
+			<input type="reset" name="reset" value="reset">
+	</form>
+	<script type="text/javascript">
+		function MyFunction1(){
+			var LastName = document.forms["frmDangNhap"].elements["txtLN"].value;
+			var FirstName = document.forms["frmDangNhap"].elements["txtFN"].value;
+
+			if(LastName == ""){
+				document.getElementById("txtLN").innerHTML = "You want write Last Name";
+				document.forms["frmDangNhap"].elements["txtLN"].focus();
+				return;
+			}
+			if(FirstName == ""){
+				document.getElementById("txtFN").innerHTML = "You want write First Name";
+				document.forms["frmDangNhap"].elements["txtFN"].focus();
+				return;
+			}
+			// check gender;
+			var isOke = false;
+			var esOke = false;
+			for(var i = 0 ; i < document.forms["frmDangNhap"].elements["gender"].length;i++){
+				if(frmDangNhap.gender[i].checked == true){
+					isOke = true;
+					break;
+				}
+			}
+
+			for(var i = 0 ;i<document.forms["frmDangNhap"].elements["PO"].length;i++){
+				if(frmDangNhap.PO[i].checked == true){
+					esOke = true;
+					break;
+				}
+			}
+
+			if(isOke == false){
+				document.getElementById("gender").innerHTML = "You want choose gender";
+				document.forms["frmDangNhap"].elements["gender"].focus();
+				return false;
+			}
+
+			if(
+				document.forms["frmDangNhap"].elements["Time"].checked == false &&
+				document.forms["frmDangNhap"].elements["Newsweek"].checked == false &&
+				document.forms["frmDangNhap"].elements["Sunday"].checked == false &&
+				document.forms["frmDangNhap"].elements["Vogue"].checked == false &&
+				document.forms["frmDangNhap"].elements["People"].checked == false
+			){
+
+				document.getElementById("MSF").innerHTML = "You want choose 1 ";
+				return false;
+			}
+
+			if(
+				document.forms["frmDangNhap"].elements["One_Year"].checked == false &&
+				document.forms["frmDangNhap"].elements["Three_Years"].checked == false &&	
+				document.forms["frmDangNhap"].elements["Five_Years"].checked == false
+			){
+				document.getElementById("Duration").innerHTML = "You want choose 1 ";
+				return false;
+			}
+
+			if(esOke == false){
+				document.getElementById("PO").innerHTML = "You want choose 1";
+				return false;
+			}
+
+			alert("You Login Success !");
+		}
+
+		function MyFunction2(x){
+			x.style.background = "yellow";
+			x.style.color = "green";
+		}
+
+		function MyFunction3(x){
+		 	x.style.background = "white";
+		 	x.style.color = "black";
+		}
+	</script>
+</body>
+</html>
